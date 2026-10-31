@@ -5,6 +5,10 @@ Express support update, item 3 = **(B)**) against the installed Seedsow Lullaby
 demo (`010042d022aea000`) and full game (`0100ee5021c9e000`), plus Nintendo
 Switch Sports Resort (`04008e001f098000`). Nothing was emulated.
 
+The save tooling and launcher docs referenced here now live in
+[ns2-savekit](https://github.com/dougchansan/ns2-savekit); this log stays with
+the console work that produced most of it.
+
 ## Save access
 
 | Action | Observed |

@@ -85,7 +85,7 @@ function main() {
     state = status(run);
     if (state.ready) {
       console.log('\nsession is back. Next:');
-      console.log('  node tools/kit.cjs ' + run);
+      console.log('  node ~/ns2-savekit/tools/kit.cjs ' + run);
       return;
     }
     if (Date.now() > deadline) {

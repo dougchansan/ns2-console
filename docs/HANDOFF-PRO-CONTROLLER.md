@@ -23,17 +23,17 @@ the home menu. Everything below was measured on this hardware today.
 ## Where the code is
 
 ```
-~/ns2-savekit/tools/esp32_pro/     # THE WORK ITEM: Pro Controller persona
+~/ns2-console/tools/esp32_pro/     # THE WORK ITEM: Pro Controller persona
     esp32_pro.ino                  # descriptor + protocol + /pro /usb /reboot
     build_opt.h                    # -DUSB_VID=0x057E  -DUSB_PID=0x2009   (flags only!)
-~/ns2-savekit/tools/esp32_hid/     # keyboard persona (proven; build with -DKEY_ONLY)
-~/ns2-savekit/tools/esp32_gc/      # GameCube adapter experiment (dead end, see below)
+~/ns2-console/tools/esp32_hid/     # keyboard persona (proven; build with -DKEY_ONLY)
+~/ns2-console/tools/esp32_gc/      # GameCube adapter experiment (dead end, see below)
 ```
 
 Build and flash (the devboard is on the dock, so use OTA):
 
 ```sh
-cd ~/ns2-savekit/tools/esp32_pro
+cd ~/ns2-console/tools/esp32_pro
 arduino-cli compile --fqbn esp32:esp32:esp32s2 --export-binaries \
   --build-property "compiler.c.elf.extra_flags=-Wl,--wrap=tud_hid_set_report_cb -Wl,--wrap=tud_hid_get_report_cb" \
   esp32_pro.ino
@@ -45,7 +45,7 @@ curl -s http://192.168.50.215/usb
 Keyboard fallback (this is what is on the board right now; it types into SmileBASIC):
 
 ```sh
-cd ~/ns2-savekit/tools/esp32_hid
+cd ~/ns2-console/tools/esp32_hid
 rm -f build_opt.h    # Espressif VID, the proven typing device
 arduino-cli compile --fqbn esp32:esp32:esp32s2 --export-binaries \
   --build-property "compiler.cpp.extra_flags=-DKEY_ONLY" esp32_hid.ino
